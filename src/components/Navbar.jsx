@@ -52,7 +52,7 @@ export default function Navbar() {
       changeMenuColorOnOpen={true}
       colors={["#0A1224", "#0D1B35", "#1060E9"]}
       accentColor="#1060E9"
-      logoUrl="./src/assets/logos/Midnight Sphere icon Logo-removebg .png"
+      logoUrl="./src/assets/logos/Midnight-Sphere-icon-Logo-removebg.png"
       isFixed={true}
       onMenuOpen={() => console.log("Menu opened")}
       onMenuClose={() => console.log("Menu closed")}
