@@ -387,7 +387,7 @@ export const StaggeredMenu = ({
         >
           <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
             <img
-              src={logoUrl || '/src/assets/logos/Midnight-Sphere-icon-Logo-removebg.png'}
+              src={logoUrl || '../src/assets/logos/Midnight-Sphere-icon-Logo-removebg.png'}
               alt="Logo"
               className="sm-logo-img block h-8 w-auto object-contain"
               draggable={false}
