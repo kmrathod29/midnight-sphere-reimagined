@@ -36,7 +36,7 @@ export default function Hero() {
             {/* We Build Text */}
             <motion.p
               layout
-              className="text-[clamp(0.95rem,4.2vw,1.875rem)] font-medium font-clash text-white whitespace-nowrap"
+              className=" text-xl sm:text-2xl md:text-3xl font-medium font-clash text-white whitespace-nowrap"
             >
               We Build
             </motion.p>
@@ -44,7 +44,7 @@ export default function Hero() {
             {/* Rotating Text */}
             <RotatingText
               texts={rotatingTexts}
-              mainClassName="px-2 sm:px-3 md:px-4 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg text-[clamp(1.1rem,4.8vw,2.25rem)] font-medium font-clash whitespace-nowrap inline-flex items-center"
+              mainClassName="px-2 sm:px-3 md:px-4 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg text-2xl sm:text-4xl md:text-5xl font-medium font-clash whitespace-nowrap inline-flex items-center"
               staggerFrom="last"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
