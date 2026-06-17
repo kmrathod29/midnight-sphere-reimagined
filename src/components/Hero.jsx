@@ -1,51 +1,68 @@
-import DotGrid from "./DotGrid";
+import { motion } from "motion/react";
+import Aurora from "./Aurora";
+import RotatingText from "./RotatingText";
+
+const rotatingTexts = [
+  "Websites.",
+  "SaaS Platforms.",
+  "Mobile Apps.",
+  "Digital Products."
+];
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Dot Grid Background */}
-
+      {/* Aurora Background */}
       <div className="absolute inset-0 z-0">
-        <DotGrid
-          dotSize={4}
-          gap={18}
-          baseColor="#2F293A"
-          activeColor="#1060E9"
-          proximity={120}
-          shockRadius={250}
-          shockStrength={5}
+        <Aurora
+          colorStops={['#5227FF', '#7cff67', '#5227FF']}
+          amplitude={1.0}
+          blend={0.5}
         />
       </div>
 
       {/* Overlay */}
-
       <div className="absolute inset-0 bg-[var(--bg)]/60 z-10" />
 
       {/* Content */}
-
-      <div className="relative z-20 flex min-h-screen items-center justify-center px-6 text-center">
-        <div>
-          <h1
-            className="
-            max-w-6xl
-            text-6xl
-            font-bold
-            md:text-8xl
-            "
+      <div className="relative z-20 min-h-screen flex items-center justify-center md:justify-start px-4 sm:px-6 md:px-8 lg:px-16">
+        {/* Main Container */}
+        <div className="w-full max-w-7xl">
+          {/* Mobile: Center aligned row, Desktop: Left-aligned row */}
+          <motion.div
+            layout
+            className="flex flex-row items-center justify-center md:justify-start gap-2 md:gap-4"
           >
-            Transforming Ideas Into{" "}
-            <span className="text-[var(--accent)]">Digital Products</span>
-          </h1>
+            {/* We Build Text */}
+            <motion.p
+              layout
+              className="text-[clamp(0.95rem,4.2vw,1.875rem)] font-medium font-clash text-white whitespace-nowrap"
+            >
+              We Build
+            </motion.p>
 
-          <p
-            className="
-            mt-6
-            text-lg
-            text-[var(--text-secondary)]
-            "
-          >
-            Modern websites, mobile apps and scalable digital experiences.
-          </p>
+            {/* Rotating Text */}
+            <RotatingText
+              texts={rotatingTexts}
+              mainClassName="px-2 sm:px-3 md:px-4 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg text-[clamp(1.1rem,4.8vw,2.25rem)] font-medium font-clash whitespace-nowrap inline-flex items-center"
+              staggerFrom="last"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-120%", opacity: 0 }}
+              staggerDuration={0.03}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{
+                type: "spring",
+                damping: 20,
+                stiffness: 300
+              }}
+              animatePresenceMode="popLayout"
+              rotationInterval={2500}
+              splitBy="characters"
+              auto
+              loop
+            />
+          </motion.div>
         </div>
       </div>
     </section>
